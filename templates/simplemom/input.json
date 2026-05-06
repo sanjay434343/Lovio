@@ -1,0 +1,29 @@
+{
+  "template": "simpleMom",
+  "fields": [
+    {
+      "key": "slug",
+      "label": "Page URL Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "name",
+      "label": "Your Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "key": "message",
+      "label": "Message for Mom",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "key": "image",
+      "label": "Image URL",
+      "type": "text",
+      "required": false
+    }
+  ]
+}
