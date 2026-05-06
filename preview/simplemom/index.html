@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Lovio Preview ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Poppins, sans-serif;
+      background: #ffe4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 350px;
+      width: 90%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h1 { color: #1a1a1a; }
+    h2 { color: #444; }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="app" class="card">
+  <h1>Loading ❤️...</h1>
+</div>
+
+<script>
+/* 🔥 MOCK DATA (inline) */
+const mockData = {
+  "sanjay-mom": {
+    name: "Sanjay",
+    message: "Mom, you are my strength and my heart ❤️",
+    image: "https://via.placeholder.com/300"
+  },
+
+  "arun-mom": {
+    name: "Arun",
+    message: "Thank you for everything you did for me ❤️",
+    image: "https://via.placeholder.com/300"
+  }
+};
+
+/* 🔍 GET SLUG */
+let slug = window.location.pathname.split("/").pop();
+
+/* fallback for local testing (index.html?slug=...) */
+if (!slug || slug === "index.html") {
+  const params = new URLSearchParams(window.location.search);
+  slug = params.get("slug");
+}
+
+/* 🧠 FIND DATA */
+const page = mockData[slug];
+
+/* 🎯 RENDER */
+const app = document.getElementById("app");
+
+if (!page) {
+  app.innerHTML = "<h1>Page Not Found ❌</h1>";
+} else {
+  app.innerHTML = `
+    <h1>For Mom ❤️</h1>
+    <h2>From ${page.name}</h2>
+    <p>${page.message}</p>
+    ${page.image ? `<img src="${page.image}" />` : ""}
+  `;
+}
+</script>
+
+</body>
+</html>
