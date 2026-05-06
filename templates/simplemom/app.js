@@ -13,17 +13,34 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-/* GET SLUG */
-let slug = window.location.pathname.split("/").pop();
-
-/* fallback for ?slug= */
-if (!slug || slug === "index.html") {
+/* 🔥 GET SLUG (handles both cases) */
+function getSlug() {
+  // 1. Try query param
   const params = new URLSearchParams(window.location.search);
-  slug = params.get("slug");
+  let slug = params.get("slug");
+
+  // 2. Fallback to path (/templates/simplemom/sanjay)
+  if (!slug) {
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    slug = parts[parts.length - 1];
+
+    // avoid picking "simplemom" as slug
+    if (slug === "simplemom") slug = null;
+  }
+
+  return slug;
 }
+
+const slug = getSlug();
 
 /* LOAD DATA */
 async function loadPage() {
+  if (!slug) {
+    document.getElementById("app").innerHTML =
+      "<h1>No Slug Provided ❌</h1>";
+    return;
+  }
+
   const snapshot = await get(ref(db, "templates_created/" + slug));
 
   if (!snapshot.exists()) {
@@ -33,7 +50,7 @@ async function loadPage() {
   }
 
   const page = snapshot.val();
-  const data = page.data; // 🔥 IMPORTANT FIX
+  const data = page.data;
 
   document.getElementById("app").innerHTML = `
     <h1>${page.templateTitle || "For Mom ❤️"}</h1>
