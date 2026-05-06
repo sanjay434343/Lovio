@@ -14,11 +14,17 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 /* GET SLUG */
-const slug = window.location.pathname.substring(1);
+let slug = window.location.pathname.split("/").pop();
+
+/* fallback for ?slug= */
+if (!slug || slug === "index.html") {
+  const params = new URLSearchParams(window.location.search);
+  slug = params.get("slug");
+}
 
 /* LOAD DATA */
 async function loadPage() {
-  const snapshot = await get(ref(db, "pages/" + slug));
+  const snapshot = await get(ref(db, "templates_created/" + slug));
 
   if (!snapshot.exists()) {
     document.getElementById("app").innerHTML =
@@ -26,13 +32,13 @@ async function loadPage() {
     return;
   }
 
-  const data = snapshot.val();
+  const page = snapshot.val();
+  const data = page.data; // 🔥 IMPORTANT FIX
 
   document.getElementById("app").innerHTML = `
-    <h1>For Mom ❤️</h1>
+    <h1>${page.templateTitle || "For Mom ❤️"}</h1>
     <h2>From ${data.name}</h2>
     <p>${data.message}</p>
-    ${data.image ? `<img src="${data.image}" />` : ""}
   `;
 }
 
