@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pollachi Tire Retreading — Your Business Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --ink: #0d0d0d;
+  --ink2: #2a2a2a;
+  --ink3: #6b6b6b;
+  --bg: #f5f2eb;
+  --bg2: #ece8df;
+  --white: #fdfcf9;
+  --accent: #c8410a;
+  --accent2: #e8a020;
+  --green: #2d6a30;
+  --green-light: #d8f0da;
+  --red-light: #fde8e8;
+  --amber-light: #fef3dc;
+  --blue: #1a4f7a;
+  --blue-light: #e0edf8;
+  --rule: rgba(0,0,0,0.1);
+  --shadow: 0 2px 20px rgba(0,0,0,0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(245,242,235,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 2rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  color: var(--ink3);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+.nav-links a:hover { background: var(--bg2); color: var(--ink); }
+.nav-cta {
+  background: var(--accent) !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+}
+.nav-cta:hover { background: #b83808 !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 2rem 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-text {
+  position: absolute;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(80px, 18vw, 220px);
+  color: rgba(0,0,0,0.04);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -4px;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink3);
+  margin-bottom: 24px;
+  letter-spacing: 0.3px;
+}
+.hero-badge-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(36px, 5vw, 62px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+  position: relative;
+}
+.hero h1 em::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px; right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.4;
+}
+.hero-sub {
+  font-size: 16px;
+  color: var(--ink3);
+  max-width: 460px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-primary:hover { background: #b83808; transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-secondary:hover { background: var(--white); }
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.hero-stat {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.hero-stat::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.hero-stat.s-red::before { background: var(--accent); }
+.hero-stat.s-green::before { background: var(--green); }
+.hero-stat.s-amber::before { background: var(--accent2); }
+.hero-stat.s-blue::before { background: var(--blue); }
+.stat-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.s-red .stat-val { color: var(--accent); }
+.s-green .stat-val { color: var(--green); }
+.s-amber .stat-val { color: var(--accent2); }
+.s-blue .stat-val { color: var(--blue); }
+.stat-label { font-size: 13px; color: var(--ink3); line-height: 1.4; }
+
+/* ── GENERAL LAYOUT ── */
+.section {
+  padding: 80px 2rem;
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--ink3);
+  max-width: 540px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+/* ── ANALOGY ── */
+.analogy-section { background: var(--ink); padding: 80px 2rem; }
+.analogy-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+.analogy-big {
+  font-family: 'Syne', sans-serif;
+  font-size: 80px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.analogy-content .a-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+.analogy-content h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+.analogy-content p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  max-width: 540px;
+}
+.analogy-content p strong { color: rgba(255,255,255,0.9); font-weight: 500; }
+
+/* ── SETUP COST ── */
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.cost-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cost-card-head {
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.cost-card-head h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.cost-card-head p { font-size: 13px; color: var(--ink3); }
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: background 0.15s;
+}
+.cost-item:hover { background: var(--bg); }
+.cost-item:last-child { border-bottom: none; }
+.cost-name { font-size: 14px; color: var(--ink2); flex: 1; padding-right: 12px; }
+.cost-name small { display: block; font-size: 12px; color: var(--ink3); margin-top: 1px; }
+.cost-amount { font-size: 14px; font-weight: 500; color: var(--ink); white-space: nowrap; }
+.cost-total {
+  background: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+}
+.cost-total span { font-size: 14px; color: rgba(255,255,255,0.7); }
+.cost-total strong { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--accent2); }
+
+.setup-right { display: flex; flex-direction: column; gap: 16px; }
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.info-card h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.info-card p { font-size: 14px; color: var(--ink3); line-height: 1.65; }
+.info-card p strong { color: var(--ink); font-weight: 500; }
+.info-card.highlighted { background: var(--green); border-color: var(--green); }
+.info-card.highlighted h4 { color: #fff; }
+.info-card.highlighted p { color: rgba(255,255,255,0.75); }
+
+/* ── PNL ── */
+.pnl-section { background: var(--bg2); }
+.pnl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.pnl-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.pnl-head {
+  padding: 22px 26px 14px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pnl-head h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--ink); }
+.pnl-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+}
+.tag-normal { background: var(--amber-light); color: #7a4800; }
+.tag-good { background: var(--green-light); color: var(--green); }
+.tag-bad { background: var(--red-light); color: #a00; }
+.pnl-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 26px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  font-size: 13px;
+}
+.pnl-row:last-child { border-bottom: none; }
+.pnl-row .pn { color: var(--ink3); flex: 1; }
+.pnl-row .pv { font-weight: 500; color: var(--ink); }
+.pnl-row .pv.red { color: #c0392b; }
+.pnl-row .pv.green { color: var(--green); }
+.pnl-total {
+  background: var(--bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 26px;
+  border-top: 1px solid var(--rule);
+}
+.pnl-total .pn { font-weight: 600; color: var(--ink); font-size: 14px; flex: 1; }
+.pnl-total .pv { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800; }
+.pnl-total .pv.green { color: var(--green); }
+.pnl-total .pv.red { color: var(--accent); }
+
+/* ── CHARTS ── */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.chart-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.chart-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.chart-card p { font-size: 13px; color: var(--ink3); margin-bottom: 20px; }
+.chart-wrap {
+  position: relative;
+  width: 100%;
+}
+.chart-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink3);
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── ANNUAL CHART FULL WIDTH ── */
+.annual-chart-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-top: 24px;
+}
+.annual-chart-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.annual-chart-card p { font-size: 14px; color: var(--ink3); margin-bottom: 24px; }
+.annual-total-bar {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.annual-total-item { }
+.annual-total-item .at-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--green);
+  letter-spacing: -0.5px;
+}
+.annual-total-item .at-label { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+
+/* ── SEASONAL ── */
+.seasonal-section { background: var(--ink); }
+.seasonal-section .section-tag { color: var(--accent2); }
+.seasonal-section .section-title { color: #fff; }
+.seasonal-section .section-sub { color: rgba(255,255,255,0.5); }
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+.month-card {
+  border-radius: var(--radius-sm);
+  padding: 16px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.2s;
+  cursor: default;
+}
+.month-card:hover { transform: translateY(-3px); }
+.month-card.peak { background: rgba(45, 106, 48, 0.25); border-color: rgba(45,106,48,0.4); }
+.month-card.mid { background: rgba(232, 160, 32, 0.15); border-color: rgba(232,160,32,0.3); }
+.month-card.low { background: rgba(200, 65, 10, 0.2); border-color: rgba(200,65,10,0.35); }
+.month-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.month-status {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.peak .month-status { color: #7de87f; }
+.mid .month-status { color: var(--accent2); }
+.low .month-status { color: #ff8c6b; }
+.month-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+/* ── CUSTOMERS ── */
+.customer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.customer-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.customer-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.c-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--bg2);
+  line-height: 1;
+  min-width: 44px;
+}
+.c-content h4 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.c-content p { font-size: 13px; color: var(--ink3); line-height: 1.6; }
+.c-content p strong { color: var(--ink); font-weight: 500; }
+.c-share {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* ── RISKS ── */
+.risk-section { background: var(--bg2); }
+.risk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.risk-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  border-left: 4px solid var(--accent);
+  transition: transform 0.2s;
+}
+.risk-card:hover { transform: translateX(4px); }
+.risk-card h4 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.risk-card .risk-fix {
+  font-size: 13px;
+  color: var(--ink3);
+  line-height: 1.65;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+}
+.risk-card .risk-fix strong { color: var(--green); font-weight: 500; }
+
+/* ── TIPS / GROW ── */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.tip-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tip-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.tip-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+.tip-card h4 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.tip-card p { font-size: 13px; color: var(--ink3); line-height: 1.65; }
+
+/* ── ROADMAP ── */
+.roadmap-section { background: var(--ink); }
+.roadmap-section .section-tag { color: var(--accent2); }
+.roadmap-section .section-title { color: #fff; }
+.roadmap-section .section-sub { color: rgba(255,255,255,0.5); }
+.roadmap {
+  display: flex;
+  gap: 0;
+  position: relative;
+  margin-top: 12px;
+}
+.roadmap::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  right: 32px;
+  height: 2px;
+  background: rgba(255,255,255,0.1);
+}
+.roadmap-step {
+  flex: 1;
+  position: relative;
+  padding-top: 0;
+}
+.step-dot {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid rgba(255,255,255,0.1);
+}
+.step-dot.y1 { background: #1a1a1a; color: var(--accent2); border-color: var(--accent2); }
+.step-dot.y2 { background: #1a1a1a; color: var(--green); border-color: var(--green); }
+.step-dot.y3 { background: #1a1a1a; color: var(--blue); border-color: var(--blue); }
+.step-content { text-align: center; padding: 0 16px; }
+.step-content h4 { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.step-content p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+.step-content .step-earn {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.8);
+}
+
+/* ── STAFF ── */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.staff-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.staff-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.staff-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+.av-you { background: var(--ink); color: #fff; }
+.av-skilled { background: var(--blue-light); color: var(--blue); }
+.av-helper { background: var(--amber-light); color: #7a4800; }
+.staff-card h4 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.staff-role { font-size: 12px; color: var(--ink3); margin-bottom: 12px; }
+.staff-wage {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.staff-wage.you { color: var(--green); }
+.staff-note { font-size: 12px; color: var(--ink3); line-height: 1.5; }
+
+/* ── SUMMARY ── */
+.summary-section { background: var(--ink); }
+.summary-section .section-tag { color: var(--accent2); }
+.summary-section .section-title { color: #fff; }
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 22px;
+  background: #161616;
+  gap: 16px;
+  transition: background 0.15s;
+}
+.summary-row:hover { background: #1a1a1a; }
+.summary-row .s-key { font-size: 13px; color: rgba(255,255,255,0.5); flex: 1; }
+.summary-row .s-val { font-size: 14px; font-weight: 500; color: #fff; text-align: right; }
+.summary-row .s-val.green { color: #7de87f; }
+.summary-row .s-val.red { color: #ff8c6b; }
+.summary-row .s-val.amber { color: var(--accent2); }
+.final-verdict {
+  background: var(--accent);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: center;
+  margin-top: 28px;
+}
+.final-verdict h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.final-verdict p { font-size: 15px; color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+/* ── FOOTER ── */
+footer {
+  background: #080808;
+  padding: 32px 2rem;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.5px;
+}
+footer span { color: rgba(255,255,255,0.5); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-bg-text { font-size: 60px; }
+  .analogy-inner { grid-template-columns: 1fr; gap: 24px; }
+  .analogy-big { font-size: 56px; }
+  .setup-grid { grid-template-columns: 1fr; }
+  .pnl-grid { grid-template-columns: 1fr; }
+  .chart-grid { grid-template-columns: 1fr; }
+  .month-grid { grid-template-columns: repeat(3, 1fr); }
+  .customer-grid { grid-template-columns: 1fr; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+  .roadmap { flex-direction: column; gap: 24px; }
+  .roadmap::before { display: none; }
+  .staff-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr; }
+  nav .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 56px 1.25rem; }
+  .month-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: 90px 1.25rem 50px; }
+  .analogy-section { padding: 56px 1.25rem; }
+  nav { padding: 0 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Pollachi Retreads</a>
+  <ul class="nav-links">
+    <li><a href="#setup">Setup Cost</a></li>
+    <li><a href="#profit">Profit & Loss</a></li>
+    <li><a href="#seasonal">Seasons</a></li>
+    <li><a href="#customers">Customers</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#summary" class="nav-cta">Summary</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">RETREAD</div>
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Pollachi · 1–2 Workers · Small Scale
+      </div>
+      <h1>Your <em>Tire Shop</em> Business Plan, Simply.</h1>
+      <p class="hero-sub">Real numbers for a one or two-person retreading shop in Pollachi. No jargon, no confusion — just what you need to start and succeed on NH-544.</p>
+      <div class="hero-actions">
+        <a href="#setup" class="btn-primary">See the plan →</a>
+        <a href="#summary" class="btn-secondary">Quick summary</a>
+      </div>
+    </div>
+    <div class="hero-stats reveal reveal-delay-2">
+      <div class="hero-stat s-amber">
+        <div class="stat-val">₹8–12L</div>
+        <div class="stat-label">Total money to start your shop</div>
+      </div>
+      <div class="hero-stat s-green">
+        <div class="stat-val">₹90K+</div>
+        <div class="stat-label">Your profit every normal month</div>
+      </div>
+      <div class="hero-stat s-blue">
+        <div class="stat-val">7–10</div>
+        <div class="stat-label">Lorry tires per day — your target</div>
+      </div>
+      <div class="hero-stat s-red">
+        <div class="stat-val">18–24</div>
+        <div class="stat-label">Months to get your money back</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANALOGY -->
+<section class="analogy-section">
+  <div class="analogy-inner">
+    <div class="reveal">
+      <div class="analogy-big">🛞</div>
+    </div>
+    <div class="analogy-content reveal reveal-delay-1">
+      <div class="a-tag">Think of it this way</div>
+      <h2>A tiffin center, not a five-star hotel.</h2>
+      <p>A big retreading unit with 10 staff is like a hotel — expensive setup, lots of risk, hard to manage. <strong>Your small shop is like a tiffin center.</strong> Low rent, 1–2 people, fixed regular customers, and you cook only as much as ordered. Same food, much less headache. The secret? Have <strong>4–5 lorry owners as regulars</strong> who come every month — just like a tiffin center's office crowd. That steady volume is everything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP COST -->
+<section class="section" id="setup">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 01 — Setup</div>
+      <h2 class="section-title">What you need to spend first</h2>
+      <p class="section-sub">One-time investment to open your shop. You don't need to buy everything new — used buffing machines from Coimbatore can save ₹1–2 lakh.</p>
+    </div>
+    <div class="setup-grid">
+      <div class="cost-card reveal">
+        <div class="cost-card-head">
+          <h3>Capital Items (Machines & Space)</h3>
+          <p>Things you buy once</p>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Buffing machine (semi-auto)<small>The most important machine — controls quality</small></div>
+          <div class="cost-amount">₹2.5–3.5L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Curing chamber (small electric)<small>Bonds the rubber to the tire at high heat</small></div>
+          <div class="cost-amount">₹1.5–2.5L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Tread applicator + tools</div>
+          <div class="cost-amount">₹0.8–1.2L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Air compressor (heavy duty)</div>
+          <div class="cost-amount">₹0.5–0.8L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Shed deposit — Pollachi outskirts<small>~1,500 sq.ft is enough for a small shop</small></div>
+          <div class="cost-amount">₹0.5–1L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">3-phase wiring &amp; electrical setup</div>
+          <div class="cost-amount">₹0.4–0.6L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Working capital buffer (3 months)<small>Rubber stock, wages, bills — don't skip this</small></div>
+          <div class="cost-amount">₹2–3L</div>
+        </div>
+        <div class="cost-item">
+          <div class="cost-name">Licenses (MSME, trade, pollution NOC)</div>
+          <div class="cost-amount">₹0.15–0.3L</div>
+        </div>
+        <div class="cost-total">
+          <span>Total investment needed</span>
+          <strong>₹8–12 lakh</strong>
+        </div>
+      </div>
+      <div class="setup-right reveal reveal-delay-2">
+        <div class="info-card">
+          <h4>🏭 Go visit Elgi Rubber, Coimbatore</h4>
+          <p>They are just 40 km away from Pollachi. They make small-scale retreading machines specifically for shops like yours, give training, and even have an after-sales team nearby. <strong>This is Pollachi's biggest advantage</strong> over shops in other towns.</p>
+        </div>
+        <div class="info-card">
+          <h4>💰 Apply for PMEGP loan</h4>
+          <p>District Industries Centre (DIC) in Coimbatore offers PMEGP and CGTMSE-backed loans. The government funds <strong>25–35% of your setup cost</strong> at subsidized interest. That means ₹2–4 lakh comes from the government, not from your pocket.</p>
+        </div>
+        <div class="info-card highlighted">
+          <h4>✅ Before spending any money...</h4>
+          <p>Talk to 3 lorry owners you already know. Get a soft "yes, I'll bring my tires." If you can't get even 3 committed customers, don't open yet. Real market validation = real lorry owners saying yes, not just a plan on paper.</p>
+        </div>
+        <div class="info-card">
+          <h4>📍 Where to set up in Pollachi</h4>
+          <p>Best locations: near NH-544 corridor, near the APMC market area, or near the Pollachi transport nagar. High lorry traffic, easy for customers to find you, and shed rent is lower than in town.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFIT & LOSS -->
+<section class="section pnl-section" id="profit">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 02 — Money</div>
+      <h2 class="section-title">Profit & Loss — 3 real scenarios</h2>
+      <p class="section-sub">Based on 8 lorry tires/day as your normal target. Lorry tires earn the best margin — focus on them.</p>
+    </div>
+
+    <div class="pnl-grid">
+      <!-- Normal month -->
+      <div class="pnl-card reveal">
+        <div class="pnl-head">
+          <h3>Normal Month</h3>
+          <span class="pnl-tag tag-normal">8 tires/day · Jan, Feb, Sep</span>
+        </div>
+        <div class="pnl-row"><span class="pn">Revenue (8/day × 26 days × avg ₹2,000)</span><span class="pv green">+₹4,16,000</span></div>
+        <div class="pnl-row"><span class="pn">Rubber + tread strips (biggest cost)</span><span class="pv red">−₹1,25,000</span></div>
+        <div class="pnl-row"><span class="pn">Cement, patches, small materials</span><span class="pv red">−₹18,000</span></div>
+        <div class="pnl-row"><span class="pn">1–2 worker wages</span><span class="pv red">−₹28,000</span></div>
+        <div class="pnl-row"><span class="pn">Electricity (buffing + curing)</span><span class="pv red">−₹18,000</span></div>
+        <div class="pnl-row"><span class="pn">Shed rent (Pollachi outskirts)</span><span class="pv red">−₹10,000</span></div>
+        <div class="pnl-row"><span class="pn">Transport + delivery</span><span class="pv red">−₹6,000</span></div>
+        <div class="pnl-row"><span class="pn">EMI / depreciation + misc</span><span class="pv red">−₹35,000</span></div>
+        <div class="pnl-total">
+          <span class="pn">Your take-home profit</span>
+          <span class="pv green">+₹96,000</span>
+        </div>
+      </div>
+
+      <!-- Peak month -->
+      <div class="pnl-card reveal reveal-delay-1">
+        <div class="pnl-head">
+          <h3>Peak Month</h3>
+          <span class="pnl-tag tag-good">12 tires/day · Oct–Nov</span>
+        </div>
+        <div class="pnl-row"><span class="pn">Revenue (12/day × 26 days × avg ₹2,000)</span><span class="pv green">+₹6,24,000</span></div>
+        <div class="pnl-row"><span class="pn">Rubber + tread strips</span><span class="pv red">−₹1,87,000</span></div>
+        <div class="pnl-row"><span class="pn">Cement, patches, small materials</span><span class="pv red">−₹27,000</span></div>
+        <div class="pnl-row"><span class="pn">1–2 worker wages (+ bonus)</span><span class="pv red">−₹32,000</span></div>
+        <div class="pnl-row"><span class="pn">Electricity</span><span class="pv red">−₹24,000</span></div>
+        <div class="pnl-row"><span class="pn">Shed rent</span><span class="pv red">−₹10,000</span></div>
+        <div class="pnl-row"><span class="pn">Transport + misc</span><span class="pv red">−₹18,000</span></div>
+        <div class="pnl-row"><span class="pn">EMI / depreciation</span><span class="pv red">−₹35,000</span></div>
+        <div class="pnl-total">
+          <span class="pn">Your take-home profit</span>
+          <span class="pv green">+₹1,91,000</span>
+        </div>
+      </div>
+
+      <!-- Monsoon loss -->
+      <div class="pnl-card reveal reveal-delay-2">
+        <div class="pnl-head">
+          <h3>Monsoon Month</h3>
+          <span class="pnl-tag tag-bad">3–4 tires/day · Jun–Jul</span>
+        </div>
+        <div class="pnl-row"><span class="pn">Revenue (3–4/day × 26 days × avg ₹2,000)</span><span class="pv green">+₹1,56,000</span></div>
+        <div class="pnl-row"><span class="pn">Rubber + materials (still need some stock)</span><span class="pv red">−₹47,000</span></div>
+        <div class="pnl-row"><span class="pn">Worker wages (can't cut — fixed)</span><span class="pv red">−₹28,000</span></div>
+        <div class="pnl-row"><span class="pn">Electricity</span><span class="pv red">−₹10,000</span></div>
+        <div class="pnl-row"><span class="pn">Shed rent (still running)</span><span class="pv red">−₹10,000</span></div>
+        <div class="pnl-row"><span class="pn">EMI / depreciation + misc</span><span class="pv red">−₹35,000</span></div>
+        <div class="pnl-total">
+          <span class="pn">Result this month</span>
+          <span class="pv red">−₹26,000 loss</span>
+        </div>
+      </div>
+
+      <!-- Break even -->
+      <div class="pnl-card reveal reveal-delay-3">
+        <div class="pnl-head">
+          <h3>Break-Even Point</h3>
+          <span class="pnl-tag tag-normal">What you must beat every day</span>
+        </div>
+        <div style="padding: 24px 26px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="text-align:center;">
+            <div style="font-family:'Syne',sans-serif;font-size:56px;font-weight:800;color:var(--accent);line-height:1;">5–6</div>
+            <div style="font-size:16px;color:var(--ink3);margin-top:4px;">tires per day to break even</div>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:16px;">
+            <p style="font-size:14px;color:var(--ink2);line-height:1.65;">Below 5 tires/day = your fixed costs (wages ₹28K + rent ₹10K + EMI ₹35K) eat into your savings. Above 6 tires/day = every extra tire is mostly profit.</p>
+          </div>
+          <div style="background:var(--green-light);border-radius:10px;padding:16px;">
+            <p style="font-size:14px;color:var(--green);font-weight:500;">🎯 Target: 8 tires/day. That's your sweet spot — comfortable profit, manageable workload for 2 people.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="chart-grid reveal">
+      <div class="chart-card">
+        <h3>More tires = more profit</h3>
+        <p>Monthly profit at different daily volumes</p>
+        <div class="chart-wrap" style="height: 220px;">
+          <canvas id="volChart" role="img" aria-label="Bar chart showing monthly profit at various daily tire volumes. At 4 tires a day you lose money. At 6 you break even. At 8 you earn 96K. At 10 you earn 1.4L. At 12 you earn 1.9L">Monthly profit at different tire volumes</canvas>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#c0392b;"></span>Loss zone</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#2d6a30;"></span>Profit zone</span>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Where your money goes</h3>
+        <p>Cost breakdown on a normal month (8 tires/day)</p>
+        <div class="chart-wrap" style="height: 220px;">
+          <canvas id="costChart" role="img" aria-label="Pie chart showing cost breakdown. Rubber material is 30%, profit is 23%, wages 7%, electricity 4%, rent 2%, EMI and misc 9%, and other costs the rest">Cost breakdown for a normal month</canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANNUAL CHART -->
+    <div class="annual-chart-card reveal">
+      <h3>Full year — month by month profit &amp; loss</h3>
+      <p>What a realistic Year 2 looks like for your Pollachi shop (₹ in thousands)</p>
+      <div class="chart-wrap" style="height: 280px;">
+        <canvas id="annualChart" role="img" aria-label="Bar chart showing monthly profit and loss across all 12 months. Most months show profit. June and July show small losses due to monsoon.">Annual month-by-month profit and loss chart</canvas>
+      </div>
+      <div class="chart-legend" style="margin-top:12px;">
+        <span class="legend-item"><span class="legend-dot" style="background:#2d6a30;"></span>Profit months</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#c0392b;"></span>Loss months (Jun–Jul monsoon)</span>
+      </div>
+      <div class="annual-total-bar">
+        <div class="annual-total-item">
+          <div class="at-val">₹10–13 lakh</div>
+          <div class="at-label">Annual net profit (Year 2+)</div>
+        </div>
+        <div class="annual-total-item">
+          <div class="at-val" style="color:var(--accent2);">10 of 12</div>
+          <div class="at-label">Profitable months per year</div>
+        </div>
+        <div class="annual-total-item">
+          <div class="at-val" style="color:var(--accent);">₹50–70K</div>
+          <div class="at-label">Total monsoon loss (Jun+Jul)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONAL -->
+<section class="section seasonal-section" id="seasonal">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 03 — Timing</div>
+      <h2 class="section-title">When to push, when to rest</h2>
+      <p class="section-sub">Pollachi's business is tied to agriculture, NH-544 freight, and monsoon patterns. Understanding this calendar is half the battle.</p>
+    </div>
+    <div class="month-grid reveal">
+      <div class="month-card peak">
+        <div class="month-name">January</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">Post-harvest. Farmers have cash. Tractor tires after heavy field use. Stock up rubber.</div>
+      </div>
+      <div class="month-card peak">
+        <div class="month-name">February</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">Summer crop prep. Tractors active. Road freight strong from CBE–Kerala route.</div>
+      </div>
+      <div class="month-card mid">
+        <div class="month-name">March</div>
+        <div class="month-status">→ MODERATE</div>
+        <div class="month-desc">Year-end. Fleet operators defer spending. Focus on collecting pending payments.</div>
+      </div>
+      <div class="month-card peak">
+        <div class="month-name">April</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">New fiscal year. Banana &amp; mango season. Best time for fleet contract renewals.</div>
+      </div>
+      <div class="month-card peak">
+        <div class="month-name">May</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">Pre-monsoon freight surge. Pre-buy rubber stock now before monsoon disruption.</div>
+      </div>
+      <div class="month-card low">
+        <div class="month-name">June</div>
+        <div class="month-status">⬇ LOW</div>
+        <div class="month-desc">SW Monsoon. Lorries park, farmers stop. Do machine maintenance. Save cash.</div>
+      </div>
+      <div class="month-card low">
+        <div class="month-name">July</div>
+        <div class="month-status">⬇ LOW</div>
+        <div class="month-desc">Deep monsoon. Minimal activity. Use saved October money to survive this month.</div>
+      </div>
+      <div class="month-card mid">
+        <div class="month-name">August</div>
+        <div class="month-status">→ MODERATE</div>
+        <div class="month-desc">Monsoon eases in Pollachi (leeward side). Freight slowly returns. Call your customers.</div>
+      </div>
+      <div class="month-card peak">
+        <div class="month-name">September</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">Harvest season begins. Tractor demand surges. Deploy full capacity.</div>
+      </div>
+      <div class="month-card peak" style="border: 2px solid #7de87f;">
+        <div class="month-name">October 🌟</div>
+        <div class="month-status">⬆⬆ PEAK</div>
+        <div class="month-desc">Coconut + banana + paddy harvest AND Diwali. Best month. Save ₹50–70K as monsoon buffer.</div>
+      </div>
+      <div class="month-card peak">
+        <div class="month-name">November</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">Produce transport at peak. Reinvest crop money. Collect all outstanding payments.</div>
+      </div>
+      <div class="month-card peak">
+        <div class="month-name">December</div>
+        <div class="month-status">⬆ HIGH</div>
+        <div class="month-desc">Year-end maintenance budgets must be spent. Tourism to Valparai. Strong close.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMERS -->
+<section class="section" id="customers">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 04 — Customers</div>
+      <h2 class="section-title">Who to get as customers in Pollachi</h2>
+      <p class="section-sub">Focus on these four types. Lorry owners are your bread and butter. Tractor owners are your backup in farm season.</p>
+    </div>
+    <div class="customer-grid">
+      <div class="customer-card reveal">
+        <div class="c-num">01</div>
+        <div class="c-content">
+          <span class="c-share">35–40% of business</span>
+          <h4>Private Lorry Owners (NH-544)</h4>
+          <p>Lorries on the Pollachi–Coimbatore–Kerala corridor. <strong>They save ₹10,000–15,000 per tire</strong> by retreading instead of buying new. Very loyal if you're reliable and fast. Target 4–5 lorry owners with 2–5 trucks each as regulars.</p>
+        </div>
+      </div>
+      <div class="customer-card reveal reveal-delay-1">
+        <div class="c-num">02</div>
+        <div class="c-content">
+          <span class="c-share">20–25% of business</span>
+          <h4>Tractor Owners (Coconut & Banana Belt)</h4>
+          <p>Pollachi is surrounded by farms. Tractor rear tires cost ₹15,000+ new. <strong>Your retread: ₹3,000–4,500.</strong> Huge saving. Peak demand Jan–Feb (post-harvest) and Sep–Oct (harvest prep). Great seasonal filler.</p>
+        </div>
+      </div>
+      <div class="customer-card reveal reveal-delay-2">
+        <div class="c-num">03</div>
+        <div class="c-content">
+          <span class="c-share">15–20% of business</span>
+          <h4>Mini-Truck & Tempo Owners (APMC Market)</h4>
+          <p>Pollachi's banana and coconut APMC yard has dozens of mini-trucks running daily. Lower margin per tire than lorries, but <strong>good steady volume</strong> and these owners are close by — easy pickup and delivery.</p>
+        </div>
+      </div>
+      <div class="customer-card reveal reveal-delay-3">
+        <div class="c-num">04</div>
+        <div class="c-content">
+          <span class="c-share">10–15% of business</span>
+          <h4>Valparai & Anamalai Jeeps and Buses</h4>
+          <p>Tourism jeeps and private mini-buses going up to Valparai have extreme tire wear due to the ghat road. <strong>They need retreading frequently</strong> and are loyal to a good shop. Niche but profitable. Good margin tires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section class="section risk-section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 05 — Risks</div>
+      <h2 class="section-title">What can go wrong &amp; how to prevent it</h2>
+      <p class="section-sub">These are the real causes of retreading shops failing. Know them, prepare for them.</p>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card reveal">
+        <h4>📉 Volume drops below 5 tires/day</h4>
+        <div class="risk-fix"><strong>Fix:</strong> Pre-sign 2–3 lorry owners as regulars before you even open. Like a tiffin center locking in office clients before cooking starts. No customers = don't open yet.</div>
+      </div>
+      <div class="risk-card reveal reveal-delay-1">
+        <h4>📈 Rubber price shoots up (2024: +50%)</h4>
+        <div class="risk-fix"><strong>Fix:</strong> Buy 2–3 months rubber stock in March–May when prices are low. Store it. Saves ₹15,000–25,000 when prices spike mid-year.</div>
+      </div>
+      <div class="risk-card reveal reveal-delay-2">
+        <h4>💸 Customer doesn't pay on time</h4>
+        <div class="risk-fix"><strong>Fix:</strong> New customers — cash only. Old regulars — 30 days max credit. Never let one person owe you more than ₹30,000. Like a grocery shop policy.</div>
+      </div>
+      <div class="risk-card reveal reveal-delay-3">
+        <h4>🔧 Buffing machine breaks down</h4>
+        <div class="risk-fix"><strong>Fix:</strong> Get annual maintenance contract with Elgi Rubber CBE. Keep spare rasps and belts in stock always. Machine downtime = zero income those days.</div>
+      </div>
+      <div class="risk-card reveal">
+        <h4>⚡ Power cut during curing</h4>
+        <div class="risk-fix"><strong>Fix:</strong> A mid-cure power failure ruins the tire and wastes material. Keep a small diesel genset (₹30,000–40,000) as backup. Worth every rupee.</div>
+      </div>
+      <div class="risk-card reveal reveal-delay-1">
+        <h4>🗂️ Bad casings getting accepted</h4>
+        <div class="risk-fix"><strong>Fix:</strong> You (or your best person) must inspect every casing before starting work. A rejected casing accepted by mistake wastes all rubber and labor spent on it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH TIPS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 06 — Growth</div>
+      <h2 class="section-title">Simple ways to grow your shop</h2>
+      <p class="section-sub">These cost almost nothing but can double your customer base within a year.</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card reveal">
+        <div class="tip-icon">🚛</div>
+        <h4>Free pickup service</h4>
+        <p>Collect and deliver tires within 15 km of Pollachi at no charge. Lorry owners love this convenience. Zero cost to you, wins 3–5 big accounts quickly without advertising.</p>
+      </div>
+      <div class="tip-card reveal reveal-delay-1">
+        <div class="tip-icon">🛡️</div>
+        <h4>Offer a small warranty</h4>
+        <p>30,000 km mileage guarantee per retread. Nobody else in Pollachi does this. Charge ₹200 extra per tire — customers gladly pay. Builds enormous trust and repeat business.</p>
+      </div>
+      <div class="tip-card reveal reveal-delay-2">
+        <div class="tip-icon">📱</div>
+        <h4>WhatsApp mileage reminders</h4>
+        <p>"Your Ashok Leyland did 70,000 km — time to retread?" Send this message monthly. Zero cost. Works brilliantly in Tamil Nadu's commercial vehicle community where everyone is on WhatsApp.</p>
+      </div>
+      <div class="tip-card reveal">
+        <div class="tip-icon">🤝</div>
+        <h4>Join Pollachi Lorry Union</h4>
+        <p>Pollachi has active lorry owner associations. Become their recommended shop — 30–50 lorries automatically become your customers. One relationship replaces months of marketing.</p>
+      </div>
+      <div class="tip-card reveal reveal-delay-1">
+        <div class="tip-icon">🌞</div>
+        <h4>Target tractors in June–July</h4>
+        <p>When lorry business slows in monsoon, farmers are preparing land after rain. Tractor tire retreading partially fills the gap. Keep tractor contacts warm all year for this.</p>
+      </div>
+      <div class="tip-card reveal reveal-delay-2">
+        <div class="tip-icon">⭐</div>
+        <h4>Get BIS certification (Year 2)</h4>
+        <p>BIS IS:15626 certification for retreading unlocks TNSTC bus contracts — government bulk orders. Rare among Pollachi competitors and commands 15% pricing premium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section class="section" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 07 — Team</div>
+      <h2 class="section-title">Your 3-person team (including you)</h2>
+      <p class="section-sub">Keep it simple. 1 skilled operator + 1 helper + you managing everything. Total wage bill: ₹26,000–32,000/month.</p>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card reveal">
+        <div class="staff-avatar av-you">YOU</div>
+        <h4>You — The Owner</h4>
+        <div class="staff-role">Manager + Casing Inspector</div>
+        <div class="staff-wage you">Your profit</div>
+        <div class="staff-note">The most important role. You inspect casings, manage customers, handle cash, buy materials. Learn casing inspection before anything else.</div>
+      </div>
+      <div class="staff-card reveal reveal-delay-1">
+        <div class="staff-avatar av-skilled">BM</div>
+        <h4>Buffing Operator</h4>
+        <div class="staff-role">Skilled — most critical hire</div>
+        <div class="staff-wage">₹16,000–20,000</div>
+        <div class="staff-note">Controls buffing depth = controls quality. Hire from Coimbatore auto industry or through Elgi Rubber's training network. Pay well, keep happy.</div>
+      </div>
+      <div class="staff-card reveal reveal-delay-2">
+        <div class="staff-avatar av-helper">H</div>
+        <h4>Helper</h4>
+        <div class="staff-role">Semi-skilled general work</div>
+        <div class="staff-wage">₹10,000–12,000</div>
+        <div class="staff-note">Handles tire movement, washing, applying tread strips, loading/unloading. Local Pollachi ITI graduate or daily wage worker who wants stable income.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section roadmap-section" id="roadmap">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Section 08 — Journey</div>
+      <h2 class="section-title">Your 3-year plan</h2>
+      <p class="section-sub">Like a coconut tree — takes time to grow, but gives fruit every month once established.</p>
+    </div>
+    <div class="roadmap reveal">
+      <div class="roadmap-step">
+        <div class="step-dot y1">Y1</div>
+        <div class="step-content">
+          <h4>Survive &amp; Build Trust</h4>
+          <p>Months 1–3 will be slow (3–5 tires/day). Use your working capital buffer. Don't panic. By month 6, target 7 tires/day. Focus on getting regular customers, not volume.</p>
+          <span class="step-earn">₹4–7 lakh net for Year 1</span>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-dot y2">Y2</div>
+        <div class="step-content">
+          <h4>Grow to 8–10 Tires/Day</h4>
+          <p>Word of mouth kicks in. Add 2–3 more fleet accounts. Start BIS certification process for TNSTC contracts. You'll earn consistently each month with good reserves.</p>
+          <span class="step-earn">₹10–13 lakh net for Year 2</span>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-dot y3">Y3</div>
+        <div class="step-content">
+          <h4>Scale or Stay Comfortable</h4>
+          <p>Add a second shift or one more worker. Push to 12–15 tires/day. Or stay at 8–10 with you and 2 people — both are valid. A comfortable ₹13 lakh/year is a great life in Pollachi.</p>
+          <span class="step-earn">₹15–22 lakh net for Year 3</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="section summary-section" id="summary">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-tag">Quick reference</div>
+      <h2 class="section-title">Everything on one page</h2>
+    </div>
+    <div class="summary-grid reveal">
+      <div class="summary-row"><span class="s-key">Investment needed</span><span class="s-val amber">₹8–12 lakh</span></div>
+      <div class="summary-row"><span class="s-key">Break-even volume</span><span class="s-val">5–6 tires/day</span></div>
+      <div class="summary-row"><span class="s-key">Target volume (daily)</span><span class="s-val">7–10 tires/day</span></div>
+      <div class="summary-row"><span class="s-key">Normal month profit</span><span class="s-val green">₹85,000–1.1 lakh</span></div>
+      <div class="summary-row"><span class="s-key">Peak month profit (Oct)</span><span class="s-val green">₹1.7–2 lakh</span></div>
+      <div class="summary-row"><span class="s-key">Monsoon loss (Jun–Jul)</span><span class="s-val red">−₹25,000–70,000</span></div>
+      <div class="summary-row"><span class="s-key">Annual profit (Year 2+)</span><span class="s-val green">₹10–13 lakh/year</span></div>
+      <div class="summary-row"><span class="s-key">Payback period</span><span class="s-val">18–24 months</span></div>
+      <div class="summary-row"><span class="s-key">Best tire segment</span><span class="s-val">Lorry 10.00×20 — highest margin</span></div>
+      <div class="summary-row"><span class="s-key">Number of workers</span><span class="s-val">You + 1 skilled + 1 helper</span></div>
+      <div class="summary-row"><span class="s-key">Monthly wage bill</span><span class="s-val">₹26,000–32,000</span></div>
+      <div class="summary-row"><span class="s-key">Best month</span><span class="s-val green">October (harvest + Diwali)</span></div>
+      <div class="summary-row"><span class="s-key">Worst months</span><span class="s-val red">June–July (SW monsoon)</span></div>
+      <div class="summary-row"><span class="s-key">Machine supplier</span><span class="s-val">Elgi Rubber, Coimbatore (40 km)</span></div>
+      <div class="summary-row"><span class="s-key">Loan to apply for</span><span class="s-val">PMEGP via DIC Coimbatore</span></div>
+      <div class="summary-row"><span class="s-key">First action right now</span><span class="s-val amber">Lock in 3 lorry owners before spending ₹1</span></div>
+    </div>
+    <div class="final-verdict reveal">
+      <h3>Yes — this is worth doing in Pollachi.</h3>
+      <p>Pollachi has everything a retreading shop needs: lorry traffic on NH-544, a farming belt full of tractors, proximity to Elgi Rubber in Coimbatore, and very little organized competition. A small shop, run well, with 8 tires a day is a reliable ₹10+ lakh/year business for you and your family.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Pollachi Tire Retreading Business Plan · Small Scale · 1–2 Workers · <span>2025 Edition</span></p>
+  <p style="margin-top:6px;font-size:11px;">For planning purposes only. Actual results depend on execution, market conditions, and rubber prices.</p>
+</footer>
+
+<script>
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+      observer.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ── CHART COLORS ── */
+const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const gridCol = 'rgba(0,0,0,0.06)';
+const textCol = '#888';
+
+/* ── VOLUME PROFIT CHART ── */
+const volData = [-25, 0, 96, 140, 191];
+const volColors = volData.map(v => v < 0 ? '#c0392b' : (v === 0 ? '#e8a020' : '#2d6a30'));
+
+new Chart(document.getElementById('volChart'), {
+  type: 'bar',
+  data: {
+    labels: ['4/day', '6/day', '8/day', '10/day', '12/day'],
+    datasets: [{
+      data: volData,
+      backgroundColor: volColors,
+      borderRadius: 8,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false },
+      tooltip: { callbacks: { label: ctx => { const v = ctx.parsed.y; return v < 0 ? 'Loss: ₹' + Math.abs(v) + 'K/mo' : v === 0 ? 'Break-even' : 'Profit: ₹' + v + 'K/mo'; } } }
+    },
+    scales: {
+      x: { grid: { color: gridCol }, ticks: { color: textCol, font: { size: 12, family: 'DM Sans' } } },
+      y: { grid: { color: gridCol }, ticks: { color: textCol, font: { size: 11, family: 'DM Sans' }, callback: v => (v < 0 ? '-' : '') + '₹' + Math.abs(v) + 'K' } }
+    }
+  }
+});
+
+/* ── COST PIE CHART ── */
+new Chart(document.getElementById('costChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Rubber/material', 'Your profit', 'Wages', 'Electricity', 'Rent', 'EMI & misc'],
+    datasets: [{
+      data: [34, 23, 7, 4, 2, 8],
+      backgroundColor: ['#c0392b', '#2d6a30', '#1a4f7a', '#e8a020', '#7a4800', '#888'],
+      borderWidth: 3,
+      borderColor: '#fdfcf9',
+      hoverBorderWidth: 3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: {
+        display: true,
+        position: 'bottom',
+        labels: { font: { size: 11, family: 'DM Sans' }, color: textCol, boxWidth: 10, padding: 8 }
+      },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed + '%' } }
+    }
+  }
+});
+
+/* ── ANNUAL CHART ── */
+const monthlyP = [90, 100, 60, 90, 85, -26, -44, 45, 85, 155, 115, 100];
+const months12 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const mColors = monthlyP.map(v => v < 0 ? '#c0392b' : '#2d6a30');
+
+new Chart(document.getElementById('annualChart'), {
+  type: 'bar',
+  data: {
+    labels: months12,
+    datasets: [{
+      data: monthlyP,
+      backgroundColor: mColors,
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => { const v = ctx.parsed.y; return v < 0 ? 'Loss: ₹' + Math.abs(v) + 'K' : 'Profit: ₹' + v + 'K'; } } }
+    },
+    scales: {
+      x: { grid: { color: gridCol }, ticks: { color: textCol, font: { size: 11, family: 'DM Sans' }, autoSkip: false, maxRotation: 0 } },
+      y: { grid: { color: gridCol }, ticks: { color: textCol, font: { size: 11, family: 'DM Sans' }, callback: v => (v < 0 ? '-' : '') + '₹' + Math.abs(Math.round(v)) + 'K' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
+
